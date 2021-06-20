@@ -4,8 +4,8 @@ import time
 import json
 import os 
 
-USER = os.getenv('API_USER')
-PASSWORD = os.environ.get('API_PASSWORD')
+PUBLIC_KEY = os.getenv('PUBLIC_KEY')
+PRIVATE_KEY = os.environ.get('PRIVATE_KEY')
 
 try:
     def getCredentials(filename="creds.json"):
@@ -18,8 +18,8 @@ except Exception:
 def genMD5Hash():
     jsonData = getCredentials(filename="creds.json")
     try:
-        publicKey = jsonData.get('publicKey')
-        privateKey = jsonData.get('privateKey')
+        publicKey = PUBLIC_KEY if True else  jsonData.get('publicKey')
+        privateKey = PRIVATE_KEY if True else jsonData.get('privateKey')
         timestamp = str(time.time())
         authStringsCombined = timestamp  + privateKey  + publicKey        
         authStringsCombined_md5 = hashlib.md5(authStringsCombined.encode())
