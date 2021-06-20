@@ -1,0 +1,43 @@
+AWSTemplateFormatVersion: '2010-09-09'
+Transform: AWS::Serverless-2016-10-31
+Description: >
+  workspaces_ops_bot
+Globals:
+  Function:
+    Timeout: 30
+
+Parameters:
+  Public_Key:
+    Type: String
+  PrivateKey:
+    Type: String
+
+Resources:
+  MarvelHero:
+    Type: AWS::Serverless::Function 
+    Properties:
+      Role: "arn:aws:iam::530182258888:role/lambda_kratos"
+      ImageConfig:
+        Command:
+            - app.lambda_handler
+      Environment:
+        Variables:              
+          PUBLIC_KEY:  !Ref Public_Key
+          PRIVATE_KEY:  !Ref  PrivateKey   
+      PackageType: Image
+      Events: 
+        MarvelData:
+          Type: Api 
+          Properties:
+            Path: /hero
+            Method: post
+    Metadata:
+      DockerTag: fathers-day
+      DockerContext: .
+      Dockerfile: Dockerfile
+
+
+
+# https://docs.aws.amazon.com/serverless-application-model/latest/developerguide/serverless-sam-cli-config.html
+# https://github.com/aws/aws-sam-cli/issues/2253
+# https://aws.amazon.com/blogs/compute/using-container-image-support-for-aws-lambda-with-aws-sam/

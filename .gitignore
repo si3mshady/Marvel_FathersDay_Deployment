@@ -1,0 +1,11 @@
+devops
+javascript
+devops/
+javascript/
+Jenkins-Docker-Udemy/ansible
+Jenkins-Docker-Udemy/jenkins_home
+Jenkins-Docker-Udemy/history
+Jenkins-Docker-Udemy/remote-*
+Jenkins-Docker-Udemy/ssh_server/remote-*
+.aws-sam/
+.git/

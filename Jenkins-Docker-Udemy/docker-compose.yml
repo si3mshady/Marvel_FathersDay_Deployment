@@ -1,0 +1,24 @@
+version: '3.7'
+services:
+  jenkins:
+    container_name: jenkins-ansible
+    image: jenkins
+    build:
+      context: ./
+    ports:
+      - "8080:8080"
+    volumes:
+      - "$PWD/jenkins_home:/var/jenkins_home"
+    networks:
+      - net
+  remote_host:
+    container_name: remote-host
+    networks: 
+      - net
+    image: remote-host
+    build: 
+      context: ssh_server
+    networks:
+      - net 
+networks:
+    net:

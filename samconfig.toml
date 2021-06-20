@@ -1,0 +1,18 @@
+version = 0.1
+[default]
+[default.deploy]
+[default.deploy.parameters]
+stack_name = "fathers-day"
+s3_bucket = "si3mshady-prime-devops-bucket"
+
+region = "us-east-2"
+confirm_changeset = true
+capabilities = "CAPABILITY_IAM"
+
+parameter_overrides=[
+  "PrivateKey=f5afdf0c411ff9ebb8ef349f42fc97a46a2e059c",
+  "PublicKey=7a5bb23368be909110293a9d8f189623"
+]
+
+
+
