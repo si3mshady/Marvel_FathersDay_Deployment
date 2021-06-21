@@ -10,11 +10,7 @@ job('Fathers Day Deployment' ) {
     steps {
         
 
-        shell('''apt-get install git -y   
-                // git clone https://github.com/si3mshady/Marvel_FathersDay_Deployment.git                
-                // pip3  install aws-sam-cli 
-                cd  Marvel_FathersDay_Deployment''')
-    }
+    
 
      steps {
         shell('''sam build  && \\
