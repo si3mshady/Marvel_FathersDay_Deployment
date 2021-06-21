@@ -11,13 +11,15 @@ job('Fathers Day Deployment' ) {
         
 
         shell('''pip3  install aws-sam-cli 
-                yum install docker -y
-                yum install -y yum-utils
-                yum-config-manager \
-                --add-repo \
-                https://download.docker.com/linux/centos/docker-ce.repo \
-                yum install docker-ce docker-ce-cli containerd.io \
+                apt-get install \
+                apt-transport-https \
+                ca-certificates \
+                curl \
+                gnupg \
+                lsb-release 
+                curl -fsSL https://download.docker.com/linux/debian/gpg | sudo gpg --dearmor -o /usr/share/keyrings/docker-archive-keyring.gpg
                 systemctl start docker
+                apt-get install docker-ce docker-ce-cli containerd.io
                 ''')
     }
 
