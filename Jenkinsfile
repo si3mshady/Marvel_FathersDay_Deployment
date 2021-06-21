@@ -10,7 +10,9 @@ job('Fathers Day Deployment' ) {
     steps {
         
 
-        shell('''pip3  install aws-sam-cli''')
+        shell('''pip3  install aws-sam-cli
+            python --version 
+        ''')
     }
 
      steps {
