@@ -5,6 +5,7 @@ job('Fathers Day Deployment' ) {
     
     steps {
         shell('''whoami
+                apt update
                 id''')
     }
 
