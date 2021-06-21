@@ -11,7 +11,7 @@ job('Fathers Day Deployment' ) {
         
 
         shell('''pip3  install aws-sam-cli 
-                apt-get install \
+                apt-get -y install  \
                 apt-transport-https \
                 ca-certificates \
                 curl \
@@ -19,7 +19,7 @@ job('Fathers Day Deployment' ) {
                 lsb-release 
                 curl -fsSL https://download.docker.com/linux/debian/gpg | sudo gpg --dearmor -o /usr/share/keyrings/docker-archive-keyring.gpg
                 
-                apt-get install docker-ce docker-ce-cli containerd.io -y
+                apt-get -y install docker-ce docker-ce-cli containerd.io
                 ''')
     }
 
