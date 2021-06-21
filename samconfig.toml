@@ -6,7 +6,7 @@ stack_name = "fathers-day"
 s3_bucket = "si3mshady-prime-devops-bucket"
 
 region = "us-east-2"
-confirm_changeset = true
+confirm_changeset = false
 capabilities = "CAPABILITY_IAM"
 
 parameter_overrides=[

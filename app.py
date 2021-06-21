@@ -4,22 +4,15 @@ import time
 import json
 import os 
 
-PUBLIC_KEY = os.getenv('PUBLIC_KEY')
+PUBLIC_KEY = os.environ.get('PUBLIC_KEY')
 PRIVATE_KEY = os.environ.get('PRIVATE_KEY')
 
-try:
-    def getCredentials(filename="creds.json"):
-        with open(filename, 'r') as file:
-            data = file.read()        
-            return json.loads(data)  
-except Exception:
-    pass
 
 def genMD5Hash():
-    jsonData = getCredentials(filename="creds.json")
+    
     try:
-        publicKey = PUBLIC_KEY if True else  jsonData.get('publicKey')
-        privateKey = PRIVATE_KEY if True else jsonData.get('privateKey')
+        publicKey = PUBLIC_KEY 
+        privateKey = PRIVATE_KEY 
         timestamp = str(time.time())
         authStringsCombined = timestamp  + privateKey  + publicKey        
         authStringsCombined_md5 = hashlib.md5(authStringsCombined.encode())
@@ -71,7 +64,7 @@ def fetchCharacterAttributes(character):
             + imageVariant + results['thumbnail']['extension'] }   
             
             print(characterAttributes.get('picture'))       
-            return characterAttributes
+            return str(characterAttributes.get('picture'))
            
         
         except Exception as e:
@@ -82,9 +75,24 @@ def fetchCharacterAttributes(character):
         print(res.status_code)
         print(res.content)
 
-def lambda_handler(event=None,context=None):    
-    comicData = fetchCharacterAttributes('spider-man')
+def lambda_handler(event,context):        
+
+    data = event.get('body')           
+    character = json.loads(data) #data is a string conver to 
+    character = character.get('character')  #ternary operator with tuples     
+    comicData = fetchCharacterAttributes(character)
+    return {"statusCode": 200, "headers": {"Access-Control-Allow-Origin": "*"},
+      "body": json.dumps(comicData)}
+
+    
+    
+
+    
+#Elliott Arnold 
+#Docker, Deployment, CICD Practice 
+#Query Marvel API to receive an image of desired character 
+#Fathers Day 
+#6-20-21
 
 
 
-lambda_handler()

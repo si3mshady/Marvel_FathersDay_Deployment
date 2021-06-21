@@ -7,7 +7,7 @@ Globals:
     Timeout: 30
 
 Parameters:
-  Public_Key:
+  PublicKey:
     Type: String
   PrivateKey:
     Type: String
@@ -22,7 +22,7 @@ Resources:
             - app.lambda_handler
       Environment:
         Variables:              
-          PUBLIC_KEY:  !Ref Public_Key
+          PUBLIC_KEY:  !Ref PublicKey
           PRIVATE_KEY:  !Ref  PrivateKey   
       PackageType: Image
       Events: 
@@ -30,7 +30,7 @@ Resources:
           Type: Api 
           Properties:
             Path: /hero
-            Method: post
+            Method: any
     Metadata:
       DockerTag: fathers-day
       DockerContext: .

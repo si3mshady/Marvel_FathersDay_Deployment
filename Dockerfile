@@ -6,5 +6,5 @@ RUN pip install requests
 
 COPY app.py .
 
-CMD ["app.handler"] 
+CMD ["app.lambda_handler"] 
 
