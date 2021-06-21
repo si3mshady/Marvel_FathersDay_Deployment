@@ -23,3 +23,4 @@ job('Fathers Day Deployment' ) {
         shell('sam deploy --image-repository 530182258888.dkr.ecr.us-east-2.amazonaws.com/si3mshady-projects')
     }
 }
+}
