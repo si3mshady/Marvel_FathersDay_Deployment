@@ -1,14 +1,16 @@
 job('Fathers Day Deployment' ) {
     
    description('Fathers Day Deployment')
-    
-    
-    steps {
-        scm {
+
+   scm {
             git {
                 'https://github.com/si3mshady/Marvel_FathersDay_Deployment', 'main'
             }
         }
+    
+    
+    steps {
+        
 
         shell('''apt-get install git -y   
                 // git clone https://github.com/si3mshady/Marvel_FathersDay_Deployment.git                
