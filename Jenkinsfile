@@ -4,7 +4,7 @@ job('Fathers Day Deployment' ) {
    
 
     scm {
-        // git('https://github.com/si3mshady/Marvel_Hero_FathersDay.git', 'main')
+        git('https://github.com/si3mshady/Marvel_Hero_FathersDay.git', 'main')
 
         git(remote {             
                 github('si3mshady/Marvel_Hero_FathersDay')
