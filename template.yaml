@@ -16,25 +16,25 @@ Resources:
   MarvelHero:
     Type: AWS::Serverless::Function 
     Properties:
+      CodeUri: lambda/
+      Handler: app.lambda_handler
+      Runtime: python3.8
       Role: "arn:aws:iam::530182258888:role/lambda_kratos"
-      ImageConfig:
-        Command:
-            - app.lambda_handler
+    
       Environment:
         Variables:              
           PUBLIC_KEY:  !Ref PublicKey
-          PRIVATE_KEY:  !Ref  PrivateKey   
-      PackageType: Image
+          PRIVATE_KEY:  !Ref  PrivateKey         
       Events: 
         MarvelData:
           Type: Api 
           Properties:
             Path: /hero
             Method: any
-    Metadata:
-      DockerTag: fathers-day
-      DockerContext: .
-      Dockerfile: Dockerfile
+    # Metadata:
+    #   DockerTag: fathers-day
+    #   DockerContext: .
+    #   Dockerfile: Dockerfile
 
 
 
