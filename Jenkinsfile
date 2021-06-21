@@ -4,9 +4,10 @@ job('Fathers Day Deployment' ) {
     
     
     steps {
-        shell('''whoami
-                apt update
-                id''')
+        shell('''apt-get install git -y   
+                git clone https://github.com/si3mshady/Marvel_FathersDay_Deployment.git
+                pip3  install aws-sam-cli
+                ''')
     }
 
      steps {
