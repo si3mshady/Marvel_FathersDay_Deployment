@@ -12,7 +12,6 @@ job('Fathers Day Deployment' ) {
                 )
             }
     
-
      steps {
         shell("""    
             sam build  && \
