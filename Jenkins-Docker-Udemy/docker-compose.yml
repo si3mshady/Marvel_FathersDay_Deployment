@@ -1,6 +1,9 @@
 version: '3.7'
 services:
   jenkins:
+    environment:
+     -  AWS_ACCESS_KEY_ID=888888888
+     -  AWS_SECRET_ACCESS_KEY=888888888
     container_name: jenkins-ansible
     image: jenkins
     build:
@@ -12,6 +15,9 @@ services:
     networks:
       - net
   remote_host:
+    environment:
+     -  AWS_ACCESS_KEY_ID=888888888
+     -  AWS_SECRET_ACCESS_KEY=888888888
     container_name: remote-host
     networks: 
       - net
