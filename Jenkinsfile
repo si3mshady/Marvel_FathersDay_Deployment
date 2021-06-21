@@ -9,7 +9,7 @@ job('Fathers Day Deployment' ) {
     scm {
         git('https://github.com/si3mshady/Marvel_Hero_FathersDay.git', 'main')
 
-        git(Closure configure = null, remote {             
+        git(configure = null, remote {             
                 github('si3mshady/Marvel_Hero_FathersDay')
                  credentialsId('github')
             })
