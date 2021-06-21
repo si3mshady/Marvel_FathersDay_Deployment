@@ -10,8 +10,8 @@ confirm_changeset = false
 capabilities = "CAPABILITY_IAM"
 
 parameter_overrides=[
-  "PrivateKey=f5afdf0c411ff9ebb8ef349f42fc97a46a2e059c",
-  "PublicKey=7a5bb23368be909110293a9d8f189623"
+  "PrivateKey=fxxxxxxxxxxxxx9f42fc97axx46a2e059c",
+  "PublicKey=7a5bbxxxxxxxxxxxxxxxxxxxxxx3a9d8f189623"
 ]
 
 
