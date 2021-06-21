@@ -18,8 +18,8 @@ job('Fathers Day Deployment' ) {
                 gnupg \
                 lsb-release 
                 curl -fsSL https://download.docker.com/linux/debian/gpg | sudo gpg --dearmor -o /usr/share/keyrings/docker-archive-keyring.gpg
-                systemctl start docker
-                apt-get install docker-ce docker-ce-cli containerd.io
+                
+                apt-get install docker-ce docker-ce-cli containerd.io -y
                 ''')
     }
 
