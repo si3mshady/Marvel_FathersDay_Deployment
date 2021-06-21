@@ -3,9 +3,7 @@ job('Fathers Day Deployment' ) {
    description('Fathers Day Deployment')
 
    scm {
-            git {
-                'https://github.com/si3mshady/Marvel_FathersDay_Deployment', 'main'
-            }
+            git('https://github.com/si3mshady/Marvel_FathersDay_Deployment', 'main')
         }
     
     
