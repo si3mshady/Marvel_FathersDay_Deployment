@@ -1,18 +1,19 @@
 job('Fathers Day Deployment' ) {
     
    description('Fathers Day Deployment')
+    properties {
+        githubProjectUrl('https://github.com/si3mshady/Marvel_FathersDay_Deployment')
+    }
    
 
     scm {
-        git('https://github.com/si3mshady/Marvel_Hero_FathersDay.git', 'main')
+        git('https://github.com/si3mshady/Marvel_Hero_FathersDay.git', 'main',Closure configure = null)
 
-        git(remote {             
+        git(Closure configure = null, remote {             
                 github('si3mshady/Marvel_Hero_FathersDay')
-                // credentials('github')
+                 credentialsId('github')
             })
-        
-
-    }          
+      }          
             steps {
                 shell('''aws ecr get-login-password --region us-east-2  | docker login --username AWS --password-stdin 530182258888.dkr.ecr.us-east-2.amazonaws.com''')
             }
