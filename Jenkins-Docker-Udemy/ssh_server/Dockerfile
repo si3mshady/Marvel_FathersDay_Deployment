@@ -1,8 +1,10 @@
 FROM centos
 
+#install docker ... in docker 
+RUN curl -fsSL https://get.docker.com/ | sh
+
 
 RUN yum install -y openssh-server
-
 RUN useradd remote_user && \
     echo "remote_user:1234" | chpasswd && \
     mkdir /home/remote_user/.ssh && \
@@ -19,6 +21,7 @@ RUN chown remote_user:remote_user -R /home/remote_user/ && \
 RUN yum install epel-release -y  && \
     yum --enablerepo=extras install epel-release -y && \
     yum install python3-pip -y  && pip3 install awscli 
+
 
 EXPOSE 22
 
