@@ -1,5 +1,9 @@
 FROM centos
 
+ENV  AWS_ACCESS_KEY_ID=AIIUHJUYUY
+ENV AWS_SECRET_ACCESS_KEY=IOIUUIHYUIUH
+ENV AWS_DEFAULT_REGION=us-east-1
+
 #install docker ... in docker 
 RUN curl -fsSL https://get.docker.com/ | sh
 
