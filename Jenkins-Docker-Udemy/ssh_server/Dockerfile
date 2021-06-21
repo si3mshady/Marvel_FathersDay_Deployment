@@ -14,7 +14,7 @@ RUN useradd remote_user && \
     echo "remote_user:1234" | chpasswd && \
     mkdir /home/remote_user/.ssh && \
     chmod 700 /home/remote_user/.ssh
-
+    
 #the command ssh-keygen was run and the key was named 'remote-key'
 #ssh-keygen created a remote-key.pub and a remote-key
 
