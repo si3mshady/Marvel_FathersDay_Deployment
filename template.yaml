@@ -18,7 +18,7 @@ Resources:
     Properties:
       CodeUri: lambda/
       Handler: app.lambda_handler
-      Runtime: python3.6
+      Runtime: python3.7
       Role: "arn:aws:iam::530182258888:role/lambda_kratos"
     
       Environment:
