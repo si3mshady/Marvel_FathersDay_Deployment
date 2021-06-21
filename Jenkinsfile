@@ -4,13 +4,9 @@ job('Fathers Day Deployment' ) {
     
     
     steps {
-        shell('''
-        
-                yum install git -y   
+        shell('''yum install git -y   
                 git clone https://github.com/si3mshady/Marvel_FathersDay_Deployment.git
-                pip3  install aws-sam-cli
-                
-                ''')
+                pip3  install aws-sam-cli''')
     }
 
      steps {
