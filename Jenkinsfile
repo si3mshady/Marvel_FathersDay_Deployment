@@ -1,23 +1,17 @@
 job('Fathers Day Deployment' ) {
     
    description('Fathers Day Deployment')
-    properties {
-        githubProjectUrl('https://github.com/si3mshady/Marvel_FathersDay_Deployment')
-    }
-   
-
-    scm {
-        git('https://github.com/si3mshady/Marvel_Hero_FathersDay.git', 'main')
-
-        git(configure = null, remote {             
-                github('si3mshady/Marvel_Hero_FathersDay')
-                 credentialsId('github')
-            })
-      }          
-            steps {
-                shell('''aws ecr get-login-password --region us-east-2  | docker login --username AWS --password-stdin 530182258888.dkr.ecr.us-east-2.amazonaws.com''')
-            }
     
+    
+    steps {
+        shell('''python3 -m venv si3mshady
+                 source si3mshady/bin/activate
+                yum install git -y   
+                git clone https://github.com/si3mshady/Marvel_FathersDay_Deployment.git
+                pip3  install aws-sam-cli
+                
+                ''')
+    }
 
      steps {
         shell('''sam build  && \\
