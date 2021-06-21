@@ -10,7 +10,16 @@ job('Fathers Day Deployment' ) {
     steps {
         
 
-    
+        shell('''pip3  install aws-sam-cli 
+                yum install docker -y
+                yum install -y yum-utils
+                yum-config-manager \
+                --add-repo \
+                https://download.docker.com/linux/centos/docker-ce.repo \
+                yum install docker-ce docker-ce-cli containerd.io \
+                systemctl start docker
+                ''')
+    }
 
      steps {
         shell('''sam build  && \\
@@ -22,5 +31,4 @@ job('Fathers Day Deployment' ) {
     steps {
         shell('sam deploy --image-repository 530182258888.dkr.ecr.us-east-2.amazonaws.com/si3mshady-projects')
     }
-}
 }
